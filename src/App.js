@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import TopNavbar from "./TopNavbar"
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './Home';
+import About from './About';
+import Metazoo from './Metazoo';
+import FleshAndBlood from './FleshAndBlood';
+import Cart from './Cart';
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <nav>
+    <TopNavbar />
+    </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/metazoo" element={<Metazoo />} />
+        <Route path="/fleshandblood" element={<FleshAndBlood />} />
+          <Route path="/cart" element={<Cart />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
